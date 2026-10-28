@@ -1,0 +1,591 @@
+\documentclass[12pt,a4paper]{report}
+
+% Main LaTeX file recreated from the supplied Stage-1 project report.
+% Compile with pdfLaTeX in Overleaf.
+% Put your figures in the same project folder and update filenames below.
+
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{float}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{ragged2e}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{caption}
+
+\onehalfspacing
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\renewcommand{\arraystretch}{1.2}
+\renewcommand{\contentsname}{Contents}
+\renewcommand{\listfigurename}{List of Figures}
+
+% ---------- EDITABLE PROJECT DETAILS ----------
+\newcommand{\ProjectTitle}{INTELLIGENT PRE-TOLL PROCESSING AND DYNAMIC LANE MANAGEMENT SYSTEM}
+\newcommand{\StudentOne}{Prathamesh Warkhede}
+\newcommand{\RollOne}{404A041}
+\newcommand{\StudentTwo}{Omkar Sonawane}
+\newcommand{\RollTwo}{404A040}
+\newcommand{\StudentThree}{Omkar Walse}
+\newcommand{\RollThree}{404A039}
+\newcommand{\GuideName}{Prof. R. R. Katkar}
+\newcommand{\CoordinatorName}{Prof. V. B. Baru}
+\newcommand{\HODName}{Dr. R. S. Kawitkar}
+\newcommand{\PrincipalName}{Dr. S. D. Lokhande}
+\newcommand{\CollegeName}{Sinhgad College of Engineering}
+\newcommand{\CollegeAddress}{Vadgaon (Bk.), Pune -- 411041}
+\newcommand{\AcademicYear}{2026--2027}
+
+% ---------- OPTIONAL IMAGE HELPER ----------
+% Displays an image if the file exists; otherwise prints a visible placeholder.
+\newcommand{\projectimage}[2]{%
+\IfFileExists{#1}{\includegraphics[width=#2\textwidth]{#1}}{%
+\fbox{\parbox[c][4cm][c]{#2\textwidth}{\centering Image placeholder\\[2mm]\texttt{#1}}}}}
+
+\begin{document}
+
+% =========================================================
+% COVER PAGE
+% =========================================================
+\begin{titlepage}
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay]
+\draw[black!70,line width=3pt]
+([xshift=1.2cm,yshift=-1.2cm]current page.north west)
+rectangle
+([xshift=-1.2cm,yshift=1.2cm]current page.south east);
+\draw[black!70,line width=0.5pt]
+([xshift=1.35cm,yshift=-1.35cm]current page.north west)
+rectangle
+([xshift=-1.35cm,yshift=1.35cm]current page.south east);
+\end{tikzpicture}
+\begin{center}
+\vspace*{1.0cm}
+{\Large\bfseries A PROJECT STAGE-1 REPORT\par}
+\vspace{0.5cm}
+{\large on\par}
+\vspace{0.5cm}
+{\fontsize{18}{22}\selectfont\bfseries \ProjectTitle\par}
+\vspace{0.8cm}
+{\large\bfseries By\par}
+\vspace{0.3cm}
+\begin{tabular}{>{\bfseries}l @{\hspace{1.5cm}} l}
+\StudentOne & Roll No. \RollOne\\
+\StudentTwo & Roll No. \RollTwo\\
+\StudentThree & Roll No. \RollThree\\
+\end{tabular}
+\vspace{0.8cm}
+
+{\large B.E. (ELECTRONICS \& TELECOMMUNICATION)\par}
+\vspace{0.4cm}
+{\large Under the guidance of\par}
+{\Large\bfseries \GuideName\par}
+\vspace{0.7cm}
+% Uncomment and use the exact logo filename if available:
+% \includegraphics[width=2.5cm]{clg-logo.png}\\[0.5cm]
+{\large\bfseries DEPARTMENT OF ELECTRONICS \& TELECOMMUNICATION ENGINEERING\par}
+{\large\bfseries \CollegeName\par}
+{\large \CollegeAddress\par}
+{\small Affiliated to Savitribai Phule Pune University, Pune\par}
+\vfill
+{\large\bfseries (\AcademicYear)\par}
+\end{center}
+\end{titlepage}
+
+% =========================================================
+% FORMAL TITLE PAGE
+% =========================================================
+\begin{titlepage}
+\thispagestyle{empty}
+\begin{center}
+\vspace*{1cm}
+{\fontsize{18}{22}\selectfont\bfseries \ProjectTitle\par}
+\vspace{1cm}
+A Project Report submitted in partial fulfillment of the requirements for award of the degree
+\vspace{0.5cm}
+
+{\Large\bfseries BACHELOR OF ENGINEERING\par}
+\vspace{0.2cm}
+{\large In\par}
+{\Large\bfseries ELECTRONICS \& TELECOMMUNICATION\par}
+{\large Of\par}
+{\large\bfseries SAVITRIBAI PHULE PUNE UNIVERSITY\par}
+\vspace{0.6cm}
+{\large\bfseries By\par}
+\vspace{0.3cm}
+\begin{tabular}{>{\bfseries}l @{\hspace{1.5cm}} l}
+\StudentOne & Roll No. \RollOne\\
+\StudentTwo & Roll No. \RollTwo\\
+\StudentThree & Roll No. \RollThree\\
+\end{tabular}
+\vspace{0.7cm}
+
+Under the guidance of\\[0.2cm]
+{\Large\bfseries \GuideName\par}
+\vfill
+% \includegraphics[width=2.5cm]{clg-logo.png}\\[0.4cm]
+{\large\bfseries DEPARTMENT OF ELECTRONICS \& TELECOMMUNICATION ENGINEERING\par}
+{\large\bfseries \CollegeName\par}
+{\large \CollegeAddress\par}
+\vspace{0.4cm}
+{\large\bfseries (\AcademicYear)\par}
+\end{center}
+\end{titlepage}
+
+% =========================================================
+% CERTIFICATE
+% =========================================================
+\clearpage
+\thispagestyle{empty}
+\begin{center}
+% \includegraphics[width=2.2cm]{clg-logo.png}\\[0.4cm]
+{\Large\bfseries CERTIFICATE\par}
+\vspace{0.8cm}
+This is to certify that the Project Stage-1 entitled\\[0.4cm]
+{\Large\bfseries ``\ProjectTitle''\par}
+\vspace{0.5cm}
+Submitted By\\[0.4cm]
+\StudentOne\\
+\StudentTwo\\
+\StudentThree
+\end{center}
+
+\vspace{0.5cm}
+has successfully completed the project Stage-1 under the supervision of
+\textbf{\GuideName} in partial fulfillment of the requirements for the degree of
+Bachelor of Engineering in Electronics \& Telecommunication of Savitribai Phule
+Pune University. This work has not been submitted elsewhere for any degree.
+
+\vspace{1.8cm}
+\noindent
+\begin{minipage}[t]{0.30\textwidth}\centering
+\textbf{\GuideName}\\Guide
+\end{minipage}\hfill
+\begin{minipage}[t]{0.30\textwidth}\centering
+\textbf{\CoordinatorName}\\Project Coordinator
+\end{minipage}\hfill
+\begin{minipage}[t]{0.30\textwidth}\centering
+\textbf{\HODName}\\H.O.D. (E\&TC)
+\end{minipage}
+
+\vspace{2cm}
+\noindent
+\begin{minipage}[t]{0.45\textwidth}\centering Examiner\end{minipage}\hfill
+\begin{minipage}[t]{0.45\textwidth}\centering
+\textbf{\PrincipalName}\\Principal\\SCOE, Pune
+\end{minipage}
+
+% =========================================================
+% FRONT MATTER
+% =========================================================
+\clearpage
+\pagenumbering{roman}
+\tableofcontents
+\clearpage
+\listoffigures
+\addcontentsline{toc}{chapter}{List of Figures}
+\clearpage
+
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+The Intelligent Pre-Toll Processing and Dynamic Lane Management System is designed
+to reduce toll-plaza congestion and vehicle waiting time through automated vehicle
+verification. The system combines RFID-based vehicle identification with camera-based
+number-plate recognition for dual verification. An ESP32 controller compares the RFID
+and number-plate data to identify mismatched or unauthorized vehicles. An OLED
+display provides local status information, while Blynk IoT can support remote
+monitoring. The system also proposes dynamic lane management and automated
+toll-barrier control using servo motors, providing an efficient and reliable
+toll-management prototype.
+
+\chapter*{Acknowledgement}
+\addcontentsline{toc}{chapter}{Acknowledgement}
+We are grateful to our project guide, \textbf{\GuideName}, for valuable guidance,
+patience, and support throughout the project. We also express our sincere thanks to
+\textbf{\CoordinatorName}, Project Coordinator, Department of Electronics \&
+Telecommunication, for encouragement, suggestions, and coordination.
+
+We thank \textbf{\HODName}, Head of the Department, and
+\textbf{\PrincipalName}, Principal of \CollegeName, for their support and for
+providing the facilities required to carry out this project. Finally, we thank our
+families, friends, and everyone who encouraged us during the work.
+
+\vspace{0.8cm}
+\begin{flushright}
+\StudentOne\\
+\StudentTwo\\
+\StudentThree
+\end{flushright}
+
+\chapter*{Abbreviations}
+\addcontentsline{toc}{chapter}{Abbreviations}
+\begin{description}[style=nextline]
+\item[ANPR] Automatic Number Plate Recognition
+\item[AI] Artificial Intelligence
+\item[CNN] Convolutional Neural Network
+\item[CPU] Central Processing Unit
+\item[GPU] Graphics Processing Unit
+\item[IoT] Internet of Things
+\item[OCR] Optical Character Recognition
+\item[OLED] Organic Light-Emitting Diode
+\item[RFID] Radio Frequency Identification
+\item[SPI] Serial Peripheral Interface
+\item[UID] Unique Identifier
+\item[Wi-Fi] Wireless Fidelity
+\item[YOLO] You Only Look Once
+\end{description}
+
+\clearpage
+\pagenumbering{arabic}
+
+% =========================================================
+% CHAPTER 1
+% =========================================================
+\chapter{Introduction}
+\section{Introduction}
+The Intelligent Pre-Toll Processing and Dynamic Lane Management System is a smart
+transportation solution developed to improve the efficiency of toll-plaza operations.
+Conventional toll plazas may experience congestion and increased waiting time due to
+manual verification, vehicle queues, and delays in toll processing. The proposed
+system aims to reduce these problems by introducing automated vehicle identification
+and verification before a vehicle reaches the toll barrier.
+
+The system uses an RFID reader to identify vehicles through their RFID tags. A camera
+captures the vehicle's number plate, which can be processed using image-processing
+and Automatic Number Plate Recognition (ANPR) techniques. The ESP32 microcontroller
+acts as the embedded controller. The RFID-linked vehicle record is compared with the
+number plate detected by the computer-vision software to perform dual verification.
+This can help identify mismatched, unauthorized, or exceptional vehicles.
+
+The system also proposes dynamic lane management to improve vehicle movement
+through the toll plaza. Servo motors represent automated toll barriers, while an OLED
+display provides vehicle and lane status. Wi-Fi and a platform such as Blynk may be
+used for remote monitoring if implemented. The current prototype is an academic
+demonstration; the final report should distinguish completed functions from planned
+integration.
+
+\section{Aim}
+To design and develop an Intelligent Pre-Toll Processing and Dynamic Lane Management
+System using ESP32, RFID, and camera-based number-plate recognition to provide
+automated vehicle verification, reduce waiting time, and improve toll-plaza traffic
+management.
+
+\section{Objectives}
+\begin{enumerate}
+\item Identify vehicles using RFID-based identification.
+\item Capture vehicle images and recognize number plates using computer vision and OCR.
+\item Perform dual verification by comparing RFID-linked records with number-plate data.
+\item Use an ESP32 microcontroller for vehicle-verification logic and system control.
+\item Detect RFID--vehicle mismatches and reject unverified vehicles.
+\item Demonstrate lane selection and management using two model lanes.
+\item Control toll barriers automatically using servo motors.
+\item Provide local status information through an OLED display.
+\item Evaluate the prototype using valid and invalid test cases.
+\end{enumerate}
+
+\section{Block Diagram}
+The proposed system includes an RFID tag and reader, a camera-based computer-vision
+module, an ESP32 controller, an OLED display, and two servo-operated lane barriers.
+The camera software sends the plate-verification result to the controller through a
+communication interface that must be specified in the final implementation.
+
+\begin{figure}[H]
+\centering
+\projectimage{block-diagram.png}{0.85}
+\caption{Block diagram of the Intelligent Pre-Toll Processing and Dynamic Lane Management System.}
+\label{fig:block}
+\end{figure}
+
+% =========================================================
+% CHAPTER 2
+% =========================================================
+\chapter{Literature Review}
+\section{Introduction}
+The literature review covers technologies related to intelligent transportation,
+RFID-based vehicle identification, wireless communication, and automatic number-plate
+recognition. Existing research explores toll collection and traffic management using
+RFID, computer vision, IoT, and artificial intelligence. Studying these systems helps
+identify their operating principles, advantages, limitations, and possible improvements.
+
+\section{Literature Review}
+Automatic number-plate recognition systems commonly use object detection, image
+processing, and OCR to locate a plate and extract its registration text. Recent object
+detection approaches, including YOLO-based models, are designed to identify objects
+in images or video frames efficiently. A dedicated plate-detection stage is still needed
+when the selected model detects vehicles but does not localize number plates.
+
+RFID technology provides contactless identification through a reader and tag. The
+identifier can be mapped to a registered vehicle record. However, a tag identifier by
+itself does not visually confirm that the vehicle passing through the lane matches the
+record. Combining RFID with number-plate recognition adds a second verification step.
+
+ESP32 development boards provide GPIO, SPI, I\textsuperscript{2}C, and wireless
+communication capabilities suitable for embedded prototypes. In this project, the
+ESP32 is used for RFID processing, display updates, and servo control, while the
+computer performs computationally intensive image processing.
+
+\section{Literature Review Summary}
+\begin{longtable}{p{0.06\textwidth}p{0.30\textwidth}p{0.22\textwidth}p{0.12\textwidth}p{0.22\textwidth}}
+\caption{Summary of related technologies and literature}\\
+\toprule
+\textbf{No.} & \textbf{Topic / Title} & \textbf{Author / Source} & \textbf{Year} & \textbf{Method / Principle}\\
+\midrule
+\endfirsthead
+\toprule
+\textbf{No.} & \textbf{Topic / Title} & \textbf{Author / Source} & \textbf{Year} & \textbf{Method / Principle}\\
+\midrule
+\endhead
+1 & Automatic Number Plate Detection and Recognition Using YOLOv8 and CNN & Gajurel et al. & 2024 & Vehicle/plate detection and character recognition.\\
+2 & ESP32 Wi-Fi microcontroller documentation & Espressif Systems & Check cited version & Wireless communication and embedded IoT functions.\\
+3 & A Conceptual Study of Long-Range Active RFID System for Reliable Data Communication & Abdulla R. & 2014 & Long-range RFID identification and communication.\\
+\bottomrule
+\end{longtable}
+
+\section{Summary}
+The reviewed technologies indicate that RFID can provide contactless identification,
+computer vision can detect vehicles and read number plates, and an ESP32 can control
+the physical outputs of a prototype. The proposed project combines these functions
+to demonstrate dual verification and model lane-barrier control. All final references
+should be checked against the original publisher or official documentation before
+submission.
+
+% =========================================================
+% CHAPTER 3
+% =========================================================
+\chapter{Methodology}
+\section{Introduction}
+The proposed system uses AI-based vehicle detection and number-plate recognition to
+support automated vehicle identification. A camera captures images or video of vehicles
+approaching the toll lane. The captured data is processed using computer-vision
+techniques. The system detects the vehicle and then localizes its number plate. OCR
+extracts the registration text. The extracted information is compared with the vehicle
+record associated with the RFID tag.
+
+\section{Methodology 1: Vehicle Detection}
+The first stage focuses on vehicle detection using a suitable YOLO object-detection
+model. A camera captures the road scene and provides images or video frames as input.
+The model processes each frame and identifies vehicle classes such as cars, motorcycles,
+buses, or trucks, depending on the model and its training classes. Bounding boxes and
+confidence scores are produced for detections.
+
+\subsection{Part 1: Vehicle Detection Implementation}
+The vehicle-detection module is implemented in Python. Input images or camera frames
+are processed by the selected model. For every detected vehicle, the program displays
+a bounding box, class label, and confidence score. This stage provides vehicle
+localization for subsequent processing. A vehicle detector does not automatically
+guarantee number-plate detection; a plate-specific model or localization stage is
+required separately.
+
+\subsection{Algorithm}
+The general detection algorithm follows these steps:
+\begin{enumerate}
+\item Capture an image or video frame from the camera.
+\item Preprocess the frame if required by the selected model.
+\item Pass the frame through the object-detection model.
+\item Obtain predicted bounding boxes, class labels, and confidence scores.
+\item Apply non-maximum suppression if supported by the detection pipeline.
+\item Display or store the final vehicle detections.
+\item Pass the relevant vehicle region to the plate-detection stage.
+\end{enumerate}
+
+\subsection{Flow Chart}
+\begin{figure}[H]
+\centering
+\projectimage{flowchart.png}{0.70}
+\caption{Flowchart of vehicle and number-plate detection.}
+\label{fig:flowchart}
+\end{figure}
+
+\section{Methodology 2: Number-Plate Detection and Recognition}
+After a vehicle is detected, the system identifies the number-plate region from the
+captured image. Image processing may be used to crop, resize, and improve the plate
+region. OCR is applied to recognize the characters present on the plate. The extracted
+text is normalized, for example by converting letters to uppercase and removing spaces,
+before comparison with the registration number linked to the RFID tag.
+
+The system must reject an unreadable or low-confidence result instead of treating it
+as a successful match. Recognition accuracy depends on image resolution, plate angle,
+lighting, motion blur, plate condition, and the selected detector/OCR model.
+
+\section{RFID Verification and Barrier Control}
+The RFID reader obtains a tag UID and the controller searches the registered sample
+records. If the UID is unknown, the transaction is rejected. If the UID is known, the
+computer vision result is checked against the stored plate. When the plate matches and
+the simulated balance is sufficient, the controller deducts the configured toll amount
+and opens the selected servo barrier. Otherwise, the barrier remains closed and the
+OLED displays the reason for rejection.
+
+\section{System Algorithm}
+\begin{enumerate}
+\item Start the system and initialize RFID, OLED, servo, and communication interfaces.
+\item Wait for an RFID tag and read its UID.
+\item Check whether the UID is registered.
+\item If the UID is unknown, display rejection and keep both barriers closed.
+\item Obtain the camera/OCR result from the computer.
+\item If the result is missing or unreliable, reject the transaction.
+\item Compare the normalized plate text with the plate stored for the RFID UID.
+\item If the plates do not match, reject the transaction.
+\item Check the simulated account balance.
+\item If the balance is sufficient, deduct the simulated toll and select a lane.
+\item Open the selected servo barrier for the demonstration interval.
+\item Close the barrier and return to the waiting state.
+\end{enumerate}
+
+% =========================================================
+% CHAPTER 4
+% =========================================================
+\chapter{Results and Discussions}
+\section{Results}
+This chapter must be updated with results actually observed during testing. Insert
+screenshots from the running vehicle-detection program, plate-detection output,
+ESP32 serial monitor, and Wokwi or physical hardware simulation.
+
+\begin{figure}[H]
+\centering
+\projectimage{plate-detection-result.png}{0.75}
+\caption{Testing result of number-plate detection.}
+\label{fig:plate-result}
+\end{figure}
+
+The number-plate detection module should be evaluated using different vehicle images
+and input frames. Record the number of plates successfully detected and recognized,
+along with examples of failures. Do not claim a specific recognition accuracy unless
+it has been measured using a defined test set.
+
+\begin{figure}[H]
+\centering
+\projectimage{vehicle-detection-result.png}{0.75}
+\caption{Testing result of vehicle detection.}
+\label{fig:vehicle-result}
+\end{figure}
+
+The vehicle-detection module can be tested with images containing different vehicle
+types. Record which classes are detected, whether the bounding boxes are correctly
+positioned, and how lighting or image quality affects performance.
+
+\section{Simulation}
+\begin{figure}[H]
+\centering
+\projectimage{wokwi-simulation.png}{0.75}
+\caption{Wokwi simulation of the ESP32-based toll controller.}
+\label{fig:simulation}
+\end{figure}
+
+\subsection{Simulation Results}
+\begin{figure}[H]
+\centering
+\projectimage{simulation-result.png}{0.75}
+\caption{Simulation result and controller status.}
+\label{fig:simulation-result}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\caption{Functional test cases and expected behaviour}
+\begin{tabular}{p{0.08\textwidth}p{0.42\textwidth}p{0.38\textwidth}}
+\toprule
+\textbf{ID} & \textbf{Test condition} & \textbf{Expected result}\\
+\midrule
+T1 & Registered RFID and matching plate & Approve transaction and open selected barrier\\
+T2 & Unknown RFID UID & Reject; barrier remains closed\\
+T3 & Registered RFID with mismatched plate & Reject; barrier remains closed\\
+T4 & Camera/OCR result unavailable or unreliable & Reject; barrier remains closed\\
+T5 & Insufficient simulated balance & Reject; do not deduct toll or open barrier\\
+T6 & Successful lane operation & Selected servo opens and closes\\
+T7 & OLED status display & Appropriate transaction status appears\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Discussions}
+The proposed system combines RFID identification with an independent visual plate
+check. The ESP32 provides embedded control and local status feedback, while a computer
+performs the image-processing tasks. The reliability of the overall system depends on
+the quality of plate detection and OCR and on successful communication between the
+computer and ESP32.
+
+Potential limitations include poor lighting, glare, angled or dirty plates, motion blur,
+OCR errors, duplicate RFID reads, and communication failures. The prototype should
+fail closed when the verification result is uncertain. Real-world deployment would
+require secure tag authentication, secure records, transaction logging, privacy
+protection, reliable vehicle-passage sensing, and regulatory approval.
+
+% =========================================================
+% CHAPTER 5
+% =========================================================
+\chapter{Conclusions}
+\section{Conclusions}
+The Intelligent Pre-Toll Processing and Dynamic Lane Management System proposes a
+combined approach to vehicle identification using RFID and camera-based number-plate
+recognition. The computer-vision module is intended to detect vehicles and read their
+registration plates, while the ESP32 handles RFID record lookup, status display, simulated
+toll deduction, and servo-barrier control.
+
+The main contribution of the prototype is the additional verification rule that the
+number plate detected by the camera must match the registration number associated
+with the RFID tag. Unknown tags, mismatched plates, and failed camera verification
+are rejected. The final conclusion must be based on the integrated prototype and the
+test results recorded by the project team.
+
+\section{Future Scope}
+The system can be enhanced in the following ways:
+\begin{itemize}
+\item Improve number-plate detection and OCR using a larger and more diverse dataset.
+\item Integrate the camera software and ESP32 using a defined communication protocol.
+\item Add a database for registered vehicles, simulated balances, and transaction logs.
+\item Implement queue measurement and a documented dynamic lane-selection algorithm.
+\item Add vehicle-passage sensors to close barriers based on actual passage rather than a fixed delay.
+\item Add secure authentication, fault recovery, and privacy controls.
+\item Evaluate performance under different lighting, camera angles, vehicle speeds, and plate conditions.
+\item Investigate integration with FASTag or authorized toll databases only where suitable access and approvals exist.
+\end{itemize}
+
+% =========================================================
+% REFERENCES
+% =========================================================
+\clearpage
+\begin{thebibliography}{99}
+\addcontentsline{toc}{chapter}{References}
+
+\bibitem{gajurel}
+K. Gajurel, M. K. Baniya, K. Mahato, M. Kathet, S. Lingden, and P. Karki,
+``Automatic Number Plate Detection and Recognition Using YOLOv8 and CNN,''
+\textit{Proceedings of the 15th IOE Graduate Conference}, vol. 15, pp. 143--149, 2024.
+Verify the final bibliographic details against the original publication.
+
+\bibitem{esp32}
+Espressif Systems, \textit{ESP32 Series Datasheet} and official ESP32 documentation.
+Use the documentation for the exact development board selected.
+
+\bibitem{abdulla}
+R. Abdulla, ``A Conceptual Study of Long Range Active RFID System for Reliable
+Data Communication,'' in \textit{Proceedings of the International Conference on
+Frontiers of Communications, Networks and Applications (ICFCNA)}, 2014, pp. 1--6.
+Verify the publication details before submission.
+
+\bibitem{opencv}
+OpenCV, \textit{Open Source Computer Vision Library Documentation}.
+Available at: \url{https://docs.opencv.org/}.
+
+\bibitem{tesseract}
+Tesseract OCR, \textit{Tesseract User Manual}.
+Available at: \url{https://tesseract-ocr.github.io/}.
+
+\bibitem{ultralytics}
+Ultralytics, \textit{YOLO Documentation}.
+Available at: \url{https://docs.ultralytics.com/}. Cite the exact model and version used.
+
+\bibitem{mfRC522}
+NXP Semiconductors, \textit{MFRC522 Standard Performance MIFARE and NTAG Frontend:
+Datasheet}. Use the manufacturer's datasheet for the exact module specifications.
+
+\end{thebibliography}
+
+\end{document}
